@@ -1,1219 +1,1091 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medisetty Umesh Kiran - Web Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-    --primary-color: #60a5fa;
-    --secondary-color: #3b82f6;
-    --accent-color: #8b5cf6;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-accent: #334155;
-    --border-color: #475569;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-    --card-bg: #1e293b;
-    --card-hover: #334155;
-}
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid var(--border-color);
-}
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-primary);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-accent) 100%);
-    padding: 120px 0 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23334155" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-        .hero-content {
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .contact-item i {
-            color: var(--primary-color);
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        /* Profile Summary */
-        .profile-summary {
-            background: var(--bg-secondary);
-        }
-
-        .summary-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        /* Experience */
-.experience {
-    background: var(--bg-secondary);
-}
-
-.horizontal-timeline {
-    position: relative;
-    padding: 2rem 0;
-    overflow-x: auto;
-    overflow-y: visible;
-}
-
-.timeline-track {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
-    min-width: max-content;
-    position: relative;
-}
-
-.timeline-track::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    transform: translateY(-50%);
-    border-radius: 2px;
-}
-
-.timeline-card {
-    background: var(--card-bg);
-    border-radius: 15px;
-    padding: 2rem;
-    min-width: 300px;
-    max-width: 350px;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.timeline-card.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    border-color: var(--primary-color);
-}
-
-.timeline-card::before {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    border: 4px solid var(--bg-secondary);
-    box-shadow: 0 0 0 3px var(--primary-color);
-}
-
-.timeline-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-}
-
-.timeline-card .company {
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.timeline-card .date {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.timeline-card .date::before {
-    content: '📅';
-    font-size: 0.8rem;
-}
-
-.timeline-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* Scrollbar styling for horizontal timeline */
-.horizontal-timeline::-webkit-scrollbar {
-    height: 8px;
-}
-
-.horizontal-timeline::-webkit-scrollbar-track {
-    background: var(--bg-accent);
-    border-radius: 4px;
-}
-
-.horizontal-timeline::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 4px;
-}
-
-.horizontal-timeline::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
-        /* Education */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .timeline-item.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-content {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            width: 45%;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-right: auto;
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 0;
-            height: 0;
-            border: 10px solid transparent;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            left: -20px;
-            border-right-color: var(--bg-primary);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            right: -20px;
-            border-left-color: var(--bg-primary);
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 20px;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            transform: translateX(-50%);
-            border: 4px solid var(--bg-primary);
-        }
-
-        .timeline-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Projects */
-        .projects {
-            background: var(--bg-secondary);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .project-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            background: var(--bg-accent);
-            color: var(--primary-color);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .skill-item {
-            margin-bottom: 1rem;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-bar {
-            height: 8px;
-            background: var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 4px;
-            width: 0;
-            transition: width 2s ease;
-        }
-
-        /* Certificates & Achievements */
-        .certificates, .achievements {
-            background: var(--bg-secondary);
-        }
-
-        .cert-grid, .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .cert-item, .achievement-item {
-            background: var(--bg-primary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .cert-item:hover, .achievement-item:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cert-item h4, .achievement-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-item p, .achievement-item p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--bg-primary);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 60px !important;
-            }
-
-            .timeline-content::before {
-                left: -20px !important;
-                border-right-color: var(--bg-primary) !important;
-                border-left-color: transparent !important;
-            }
-
-            .timeline-dot {
-                left: 20px;
-                transform: none;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 100px 0 60px;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-    .timeline-track {
-        flex-direction: column;
-        gap: 1.5rem;
-        min-width: auto;
-    }
-    
-    .timeline-track::before {
-        display: none;
-    }
-    
-    .timeline-card {
-        min-width: auto;
-        max-width: none;
-    }
-    
-    .timeline-card::before {
-        left: -15px;
-        bottom: 50%;
-        transform: translateY(50%);
-    }
-    
-    .horizontal-timeline {
-        overflow-x: visible;
-    }
-}
-    </style>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✧</text></svg>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UCreates | Premium AI Software &amp; Design Studio</title>
+  <meta name="description"
+    content="UCreates is a premium AI engineering and software design studio. We build digital products that define industries, partnering with companies to construct elite SaaS, mobile apps, and automated workflows." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@300;400;500;700;800&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- SEO Meta Tags -->
+  <meta property="og:title" content="UCreates | Premium AI Software &amp; Design Studio" />
+  <meta property="og:description"
+    content="An elite software design and intelligence studio building premium digital platforms and automated software systems. Founded by Umesh Kiran." />
+  <meta property="og:type" content="website" />
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">Umesh Kiran</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-            </ul>
-            <div class="mobile-menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+  <!-- Custom Minimalist Cursor -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="cursor-glow" class="cursor-glow"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Medisetty Umesh Kiran</h1>
-                <p class="subtitle">Web Developer</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>umeshmedisetty@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>8121693113</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Hyderabad</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Soft Ambient Lights & Noise Texture -->
+  <div class="ambient-overlay"></div>
+  <div class="noise-overlay"></div>
+  <div id="bg-glows" class="bg-glows">
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-purple"></div>
+  </div>
 
-    <!-- Profile Summary -->
-    <section id="about" class="profile-summary">
-        <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <div class="summary-content fade-in">
-                <p>I am a passionate Data Science student with a strong foundation in web development and emerging technologies. Currently serving as the Tech Head at ADSC, I specialize in MERN stack development and have extensive experience in building scalable web applications. My interests span across full-stack development, wireless power transfer research, and innovative tech solutions. I thrive in collaborative environments and am always eager to take on new challenges that push the boundaries of technology.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-<section id="experience" class="experience">
-    <div class="container">
-        <h2 class="section-title fade-in">Experience</h2>
-        <div class="horizontal-timeline">
-            <div class="timeline-track">
-                <div class="timeline-card">
-                    <h3>Web Development Lead</h3>
-                    <div class="company">ADSC</div>
-                    <div class="date">Aug 2024 – Present</div>
-                    <p>Leading web development initiatives, managing technical projects, and mentoring junior developers. Responsible for architecting and implementing scalable web solutions using modern technologies.</p>
-                </div>
-                <div class="timeline-card">
-                    <h3>Intern</h3>
-                    <div class="company">ADSC</div>
-                    <div class="date">Mar 2024 – Aug 2024</div>
-                    <p>Developed and maintained web applications, collaborated with cross-functional teams, and contributed to various technical projects while gaining hands-on experience in professional development practices.</p>
-                </div>
-                <div class="timeline-card">
-                    <h3>Web Developer Intern</h3>
-                    <div class="company">Skilltimate</div>
-                    <div class="date">Nov 2023 – Dec 2023</div>
-                    <p>Built responsive web interfaces, implemented user-friendly features, and worked on optimizing website performance. Gained experience in modern web development frameworks and best practices.</p>
-                </div>
-                <div class="timeline-card">
-                    <h3>Full Stack Developer Intern</h3>
-                    <div class="company">IIT Hyderabad</div>
-                    <div class="date">Jul 2023 – Aug 2023</div>
-                    <p>Developed full-stack applications, worked with databases, and implemented both frontend and backend solutions. Collaborated with research teams on technical projects.</p>
-                </div>
-            </div>
-        </div>
+  <!-- Minimalist Preloader -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-brand">UCreates</div>
+      <div class="loader-bar-container">
+        <div class="loader-bar"></div>
+      </div>
+      <div class="loader-percentage">0%</div>
     </div>
-</section>
+  </div>
 
-    <!-- Education -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title fade-in">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>B.Tech in Data Science</h3>
-                        <p class="date">Malla Reddy Engineering College • 2022 – Present</p>
-                        <p>Pursuing Bachelor of Technology in Data Science with focus on machine learning, data analytics, and software development. Active participant in technical clubs and hackathons.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Intermediate (12th Grade)</h3>
-                        <p class="date">Sri Aadya Junior College</p>
-                        <p>Completed intermediate education with strong foundation in mathematics and science, preparing for engineering entrance examinations.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Class 10</h3>
-                        <p class="date">Pragathi Vidya Niketan</p>
-                        <p>Completed secondary education with excellent academic performance and active participation in extracurricular activities.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Elegant Fixed Navigation Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        UCreates<span class="dot">✧</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Capabilities</a>
+        <a href="#projects" class="nav-link">Works</a>
+        <a href="#philosophy" class="nav-link">Philosophy</a>
+        <a href="#contact" class="nav-link contact-trigger">Inquire</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#contact" class="btn-magnetic btn-primary">
+          <span>Get in Touch</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main id="app">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <!-- WebGL Canvas -->
+      <div id="hero-canvas" class="hero-canvas"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-title reveal-item">
+          We build digital products<br />
+          <span class="gradient-text">that define industries.</span>
+        </h1>
+        <p class="hero-subtitle reveal-item">
+          UCreates is an elite AI engineering and software design studio. We partner with forward-thinking companies to
+          build premium SaaS, web platforms, and automated intelligence systems.
+        </p>
+        <div class="hero-ctas reveal-item">
+          <a href="#projects" class="btn-magnetic btn-primary">
+            <span>View Works</span>
+          </a>
+          <a href="#contact" class="btn-magnetic btn-secondary">
+            <span>Book Discovery Call</span>
+          </a>
         </div>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <span>EXPLORE</span>
+        <div class="indicator-line"></div>
+      </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Music Streaming Platform</h3>
-                    <p>A full-featured music streaming application built with MERN stack, featuring user authentication, playlist management, and real-time music streaming capabilities.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Express.js</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Blue-Collar Services Platform</h3>
-                    <p>A comprehensive platform connecting blue-collar workers with customers, featuring service booking, payment integration, and rating system.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Bootstrap</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>ADSC Event Website</h3>
-                    <p>Official event website for ADSC with event registration, schedule management, and participant tracking features.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Bootstrap</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Praesto Event Platform</h3>
-                    <p>Event management platform for Praesto 2k24 with registration system, event scheduling, and real-time updates.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MERN Stack</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Vercel</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Wireless Power Transfer System</h3>
-                    <p>Research project on RF-based wireless power transfer technology, involving circuit design and efficiency optimization.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">RF Technology</span>
-                        <span class="tech-tag">Circuit Design</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                </div>
-            </div>
+    <!-- ABOUT (Storytelling Narrative) -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <!-- Introduction Grid -->
+        <div class="about-story-grid">
+          <div class="story-left">
+            <span class="section-tag">THE STUDIO</span>
+            <h2 class="about-lead reveal-text">
+              We believe in the relentless pursuit of software craft.
+            </h2>
+          </div>
+          <div class="story-right reveal-text">
+            <p>
+              A studio built on the belief that code should be beautiful. We don't build generic SaaS templates or cut
+              corners on performance. UCreates was born from a simple thesis: the most successful digital products on
+              earth are built with obsessive attention to design, speed, and intelligence.
+            </p>
+            <p>
+              Founded by Umesh Kiran, our studio bridges the gap between cognitive AI architectures and premium
+              interface design. We construct products that make your visitors think: "This company builds products that
+              are on the same level as Apple, Stripe, and Vercel."
+            </p>
+          </div>
         </div>
+
+        <!-- Narrative Blocks -->
+        <div class="about-narrative-layout">
+          <div class="narrative-row">
+            <div class="narrative-text reveal-text">
+              <span class="narrative-number">01 / BRAND PURPOSE</span>
+              <h3>Why UCreates Exists</h3>
+              <p>
+                Most software houses build for specifications. They optimize for checkboxes and overlook the sensory
+                experience of software. We build bespoke solutions with the meticulous attention to detail of a digital
+                luxury watchmaker. Every animation curve, database transaction, and layout pixel is handcrafted to
+                create desire.
+              </p>
+            </div>
+            <div class="narrative-visual reveal-item">
+              <div class="media-placeholder frame-glass">
+                <!-- Abstract geometric shape layout -->
+                <div class="abstract-shape shape-a"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="narrative-row row-reverse">
+            <div class="narrative-text reveal-text">
+              <span class="narrative-number">02 / CORE ARCHITECTURE</span>
+              <h3>Why Intelligence Matters</h3>
+              <p>
+                Artificial Intelligence is not an add-on; it is the runtime of modern enterprise. We integrate cognitive
+                orchestration directly into your software's core. From autonomous agents that handle decision vectors to
+                semantic vector databases that remember contexts, we build systems that reason.
+              </p>
+            </div>
+            <div class="narrative-visual reveal-item">
+              <div class="media-placeholder frame-glass">
+                <div class="abstract-shape shape-b"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="narrative-row">
+            <div class="narrative-text reveal-text">
+              <span class="narrative-number">03 / PRODUCT PHILOSOPHY</span>
+              <h3>Why Quality Matters</h3>
+              <p>
+                A premium experience generates direct business equity. Trust, conversion, and retention are all direct
+                outputs of product engineering quality. When your software operates with sub-100ms latency and beautiful
+                motion physics, your clients feel confidence. Quality is the ultimate leverage.
+              </p>
+            </div>
+            <div class="narrative-visual reveal-item">
+              <div class="media-placeholder frame-glass">
+                <div class="abstract-shape shape-c"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Quote Block -->
+        <div class="about-quote-block">
+          <blockquote class="reveal-text">
+            "We don't build software just to solve problems. We build software to establish standards."
+          </blockquote>
+          <div class="quote-author reveal-text">
+            <span class="author-name">Umesh Kiran</span>
+            <span class="author-title">Founder, AI Engineer &amp; Full Stack Developer</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title fade-in">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category fade-in">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>React.js</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>HTML/CSS</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="95"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>JavaScript</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Bootstrap</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Backend Development</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Node.js</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Express.js</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>MongoDB</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>MySQL</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Git</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Firebase</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="75"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Vercel</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>AWS Basics</span>
-                            <span>60%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="60"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="80"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>JavaScript</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="85"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>C Programming</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-width="70"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- SERVICES (Immersive Capabilities) -->
+    <section id="services" class="services-section">
+      <div class="services-intro">
+        <div class="section-container">
+          <span class="section-tag">CAPABILITIES</span>
+          <h2 class="section-title">Immersive Capabilities</h2>
         </div>
+      </div>
+
+      <div class="services-scroll-deck">
+        <!-- Service 1: AI -->
+        <div class="service-deck-item" id="service-ai">
+          <div class="section-container service-deck-grid">
+            <div class="service-deck-details">
+              <span class="service-index">01 / INTELLIGENCE</span>
+              <h3>Intelligent Orchestration</h3>
+              <p>
+                We engineer autonomous agent structures, custom RAG systems, and vector search pipelines. We model
+                cognitive workflows that automate enterprise decisions and unlock untapped efficiency.
+              </p>
+              <div class="service-features-list">
+                <span>Custom LLM Pipelines</span>
+                <span>Semantic Vector DBs</span>
+                <span>Autonomous Agents</span>
+              </div>
+            </div>
+            <div class="service-deck-visual">
+              <canvas id="neural-canvas" class="visual-canvas-fluid"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2: Web Dev -->
+        <div class="service-deck-item" id="service-web">
+          <div class="section-container service-deck-grid">
+            <div class="service-deck-details">
+              <span class="service-index">02 / PLATFORMS</span>
+              <h3>Digital Platform Engineering</h3>
+              <p>
+                We compile high-performance web applications with sub-100ms interactive thresholds. Engineered with
+                standard protocols, optimized payloads, and meticulous frontend alignments.
+              </p>
+              <div class="service-features-list">
+                <span>Elite Next.js &amp; Vite</span>
+                <span>SaaS Platforms</span>
+                <span>Optimized Runtimes</span>
+              </div>
+            </div>
+            <div class="service-deck-visual">
+              <div class="browser-frame-mockup">
+                <div class="browser-frame-header">
+                  <div class="frame-indicators">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="frame-path">ucreates.studio/dashboard</div>
+                </div>
+                <div class="browser-frame-body">
+                  <div class="premium-dashboard-wire">
+                    <div class="wire-sidebar"></div>
+                    <div class="wire-main">
+                      <div class="wire-header"></div>
+                      <div class="wire-grid">
+                        <div class="wire-card active-pulse"></div>
+                        <div class="wire-card"></div>
+                        <div class="wire-card"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3: Mobile Apps -->
+        <div class="service-deck-item" id="service-mobile">
+          <div class="section-container service-deck-grid">
+            <div class="service-deck-details">
+              <span class="service-index">03 / EXPERIENCE</span>
+              <h3>Native Mobile Experiences</h3>
+              <p>
+                Premium iOS and Android solutions styled with gesture-based transitions, offline capabilities, and
+                native performance. Built to align with Apple design principles.
+              </p>
+              <div class="service-features-list">
+                <span>Native Gestures</span>
+                <span>Frictionless Animation</span>
+                <span>Offline Synchronization</span>
+              </div>
+            </div>
+            <div class="service-deck-visual">
+              <div class="phone-frame-mockup">
+                <div class="phone-frame-screen">
+                  <div class="phone-status-bar"></div>
+                  <div class="phone-app-mock">
+                    <div class="phone-app-header"></div>
+                    <div class="phone-app-chart-card">
+                      <div class="chart-bars-wrap">
+                        <div class="chart-bar" style="height: 35%"></div>
+                        <div class="chart-bar" style="height: 60%"></div>
+                        <div class="chart-bar" style="height: 45%"></div>
+                        <div class="chart-bar" style="height: 80%"></div>
+                      </div>
+                      <div class="chart-bar-labels"></div>
+                    </div>
+                    <div class="phone-app-list-block"></div>
+                    <div class="phone-app-list-block"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4: Automation -->
+        <div class="service-deck-item" id="service-automation">
+          <div class="section-container service-deck-grid">
+            <div class="service-deck-details">
+              <span class="service-index">04 / FLOWS</span>
+              <h3>Systemic Workflow Automation</h3>
+              <p>
+                Connecting APIs, data layers, and cloud microservices into automated middleware pipelines. We eliminate
+                human latency and scale operations 24/7.
+              </p>
+              <div class="service-features-list">
+                <span>Middleware Pipelines</span>
+                <span>Data Integration</span>
+                <span>Resilient Sync Loops</span>
+              </div>
+            </div>
+            <div class="service-deck-visual">
+              <canvas id="automation-canvas" class="visual-canvas-fluid"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5: SaaS Transformation -->
+        <div class="service-deck-item" id="service-software">
+          <div class="section-container service-deck-grid">
+            <div class="service-deck-details">
+              <span class="service-index">05 / SYSTEMS</span>
+              <h3>SaaS &amp; Custom Software</h3>
+              <p>
+                We transform complex, outdated business dashboards and spreadsheets into clean, modern enterprise
+                software that users love. Elegant UX models that drive commercial throughput.
+              </p>
+              <div class="service-features-list">
+                <span>System Transformations</span>
+                <span>Clean UI Infrastructures</span>
+                <span>High-Data Simplicity</span>
+              </div>
+            </div>
+            <div class="service-deck-visual">
+              <div class="dashboard-before-after">
+                <div class="dashboard-wire-screen panel-glass">
+                  <div class="wire-screen-dots"></div>
+                  <div class="wire-screen-layout">
+                    <div class="screen-chart-line"></div>
+                    <div class="screen-metrics-block">
+                      <span>Optimizing Processing Cycles</span>
+                      <h4>99.98% Efficiency</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 6: UI/UX -->
+        <div class="service-deck-item" id="service-uiux">
+          <div class="section-container service-deck-grid">
+            <div class="service-deck-details">
+              <span class="service-index">06 / SPECIFICATION</span>
+              <h3>Design Systems &amp; UI/UX</h3>
+              <p>
+                Bespoke Figma design systems engineered with flexible variables, grid disciplines, and component trees
+                that match 1-to-1 with React/Vite code bases.
+              </p>
+              <div class="service-features-list">
+                <span>Design Token Systems</span>
+                <span>Rigorous Typography Scales</span>
+                <span>Component Architectures</span>
+              </div>
+            </div>
+            <div class="service-deck-visual">
+              <div class="uiux-specs-sheet panel-glass">
+                <div class="design-tokens-swatches">
+                  <span style="--color-token: #0052ff;"></span>
+                  <span style="--color-token: #8a2be2;"></span>
+                  <span style="--color-token: #ffffff;"></span>
+                </div>
+                <div class="design-tokens-fonts">
+                  <div class="token-line select-h1">Cabinet Grotesk</div>
+                  <div class="token-line select-body">Inter Sans</div>
+                </div>
+                <div class="design-tokens-buttons">
+                  <div class="token-button-mock">Primary</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Certificates -->
-    <section id="certificates" class="certificates">
-        <div class="container">
-            <h2 class="section-title fade-in">Certificates</h2>
-            <div class="cert-grid">
-                <div class="cert-item fade-in">
-                    <h4>IIT Hyderabad Workshop</h4>
-                    <p>Advanced Web Development and Full Stack Technologies</p>
-                </div>
-                <div class="cert-item fade-in">
-                    <h4>Python Programming</h4>
-                    <p>Comprehensive Python programming course covering data structures and algorithms</p>
-                </div>
-                <div class="cert-item fade-in">
-                    <h4>C Programming Fundamentals</h4>
-                    <p>Core programming concepts and problem-solving techniques</p>
-                </div>
-                <div class="cert-item fade-in">
-                    <h4>MERN Stack Development</h4>
-                    <p>Full-stack web development using MongoDB, Express.js, React, and Node.js</p>
-                </div>
-                <div class="cert-item fade-in">
-                    <h4>Data Science Fundamentals</h4>
-                    <p>Introduction to data analysis, machine learning, and statistical methods</p>
-                </div>
-                <div class="cert-item fade-in">
-                    <h4>Cloud Computing Basics</h4>
-                    <p>AWS fundamentals and cloud deployment strategies</p>
-                </div>
-            </div>
+    <!-- PROJECTS SHOWCASE SECTION (Apple Product Page Feel) -->
+    <section id="projects" class="projects-section">
+      <div class="section-container">
+        <div class="projects-section-header">
+          <span class="section-tag">SELECTED WORKS</span>
+          <h2 class="section-title">Case Studies in Product Craftsmanship</h2>
         </div>
+
+        <!-- Project 1: Pulse AI -->
+        <div class="project-mini-landing" id="project-pulse">
+          <div class="mini-landing-hero">
+            <div class="mini-landing-title-wrap">
+              <span class="case-index">CASE STUDY 01</span>
+              <h3>Pulse AI</h3>
+              <p class="case-tagline">Autonomous Enterprise Inventory Decision Engine (Under Development)</p>
+            </div>
+
+            <div class="mini-landing-mockup">
+              <div class="laptop-device-frame">
+                <div class="laptop-device-screen">
+                  <div class="pulse-ai-visuals">
+                    <div class="pulse-radar-dot"></div>
+                    <div class="pulse-radar-circle"></div>
+                    <div class="pulse-status-panel">
+                      <span>System Sandbox State</span>
+                      <strong>DEVELOPMENT ACTIVE // ALPHA 0.4</strong>
+                    </div>
+                  </div>
+                </div>
+                <div class="laptop-device-base"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study Content Grid -->
+          <div class="case-study-grid">
+            <div class="case-col case-col-narrative">
+              <div class="case-sub-block">
+                <h4>THE CHALLENGE</h4>
+                <p>
+                  Reducing global logistical latency and waste. Our enterprise client targets a substantial decrease in
+                  monthly dead inventory waste by shifting from reactive tracking to automated forecasting.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE RESEARCH</h4>
+                <p>
+                  Analyzing multi-modal supply chains and transit patterns to establish route delays. Predictive
+                  algorithms are being calibrated using atmospheric and variable route-load datasets.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DESIGN</h4>
+                <p>
+                  Drafting clean dashboards designed for low cognitive load, focusing on early alert pipelines, dynamic
+                  re-routing workflows, and quick-action response override triggers.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DEVELOPMENT</h4>
+                <p>
+                  Currently engineering the core models with a TypeScript/Next.js interface and Python/FastAPI backend,
+                  utilizing LangChain agents to parse real-time logistics logs.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-col case-col-output">
+              <div class="case-sub-block">
+                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
+                <p>
+                  System is undergoing closed sandbox testing. Initial staging runs demonstrate reliable predictive
+                  capabilities. Full alpha release and partner integration scheduled for Q4 2026.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>TECHNOLOGY STACK</h4>
+                <div class="case-tech-tokens">
+                  <span>Next.js</span>
+                  <span>FastAPI</span>
+                  <span>PostgreSQL</span>
+                  <span>LangChain</span>
+                  <span>OpenAI API</span>
+                </div>
+              </div>
+              <div class="case-sub-block">
+                <h4>KEY METRICS</h4>
+                <div class="case-metrics-row">
+                  <div class="metric-box">
+                    <div class="metric-value">Staging</div>
+                    <div class="metric-label">Deployment Env</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="metric-value">Alpha 0.4</div>
+                    <div class="metric-label">Active Build Version</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Outlaw Store -->
+        <div class="project-mini-landing" id="project-outlaw">
+          <div class="mini-landing-hero">
+            <div class="mini-landing-title-wrap">
+              <span class="case-index">CASE STUDY 02</span>
+              <h3>Outlaw</h3>
+              <p class="case-tagline">Premium Streetwear &amp; High-Performance Next.js E-Commerce</p>
+            </div>
+
+            <div class="mini-landing-mockup">
+              <div class="laptop-device-frame">
+                <div class="laptop-device-screen">
+                  <div class="outlaw-store-visuals">
+                    <div class="outlaw-store-glow"></div>
+                    <div class="outlaw-store-header">
+                      <span class="outlaw-logo">OUTLAW✧</span>
+                      <div class="outlaw-nav">
+                        <span>Catalog</span>
+                        <span>Cart</span>
+                      </div>
+                    </div>
+                    <div class="outlaw-store-hero">
+                      <div class="outlaw-product-preview">
+                        <div class="outlaw-product-tag">SIGNATURE</div>
+                        <h4>Skull Graphic Tee</h4>
+                        <p>₹55</p>
+                        <div class="outlaw-btn">Shop Now</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="laptop-device-base"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study Content Grid -->
+          <div class="case-study-grid">
+            <div class="case-col case-col-narrative">
+              <div class="case-sub-block">
+                <h4>THE CHALLENGE</h4>
+                <p>
+                  Streetwear brand Outlaw required a high-performance, dark-themed editorial storefront that translates
+                  raw counter-culture design into frictionless, lightning-fast digital checkouts.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE RESEARCH</h4>
+                <p>
+                  Analyzed modern fashion UX behaviors. Streetwear buyers expect immediate image rendering,
+                  high-contrast layouts, and dynamic animations that reflect brand aesthetic without page load delays.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DESIGN</h4>
+                <p>
+                  Structured an intense, dark-themed responsive experience utilizing bold typography, deep grays, rich
+                  red accent glows, smooth hover-scaling product grids, and a single-view sliding drawer cart.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DEVELOPMENT</h4>
+                <p>
+                  Engineered using Next.js App Router, Tailwind CSS, and Razorpay integrations. Applied server-side
+                  caching and image optimizations to guarantee sub-second page performance.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-col case-col-output">
+              <div class="case-sub-block">
+                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
+                <p>
+                  Outlaw launched a striking, premium storefront that converts visitors with high efficiency. The
+                  seamless page transit speeds and fast payment flows resulted in positive customer engagement.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>TECHNOLOGY STACK</h4>
+                <div class="case-tech-tokens">
+                  <span>Next.js</span>
+                  <span>Tailwind CSS</span>
+                  <span>Razorpay API</span>
+                  <span>Vercel</span>
+                </div>
+              </div>
+              <div class="case-sub-block">
+                <h4>KEY METRICS</h4>
+                <div class="case-metrics-row">
+                  <div class="metric-box">
+                    <div class="metric-value">98/100</div>
+                    <div class="metric-label">PageSpeed Score</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="metric-value">&lt; 150ms</div>
+                    <div class="metric-label">Route Transition</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: UStream Mobile App -->
+        <div class="project-mini-landing" id="project-ustream">
+          <div class="mini-landing-hero">
+            <div class="mini-landing-title-wrap">
+              <span class="case-index">CASE STUDY 03</span>
+              <h3>UStream</h3>
+              <p class="case-tagline">React Native &amp; Supabase Music Streaming Application</p>
+            </div>
+
+            <div class="mini-landing-mockup">
+              <div class="phone-device-frame">
+                <div class="phone-device-screen ustream-screen">
+                  <div class="ustream-player-layout">
+                    <div class="ustream-player-header">
+                      <span>Library</span>
+                      <span>UStream✧</span>
+                    </div>
+                    <div class="ustream-album-art-wrap">
+                      <div class="ustream-album-art-glow"></div>
+                      <div class="ustream-album-art">✧</div>
+                    </div>
+                    <div class="ustream-track-meta">
+                      <h4>Ethereal Frequency</h4>
+                      <span>Soundwave Resonance</span>
+                    </div>
+                    <div class="ustream-spectrum">
+                      <span class="bar bar-1"></span>
+                      <span class="bar bar-2"></span>
+                      <span class="bar bar-3"></span>
+                      <span class="bar bar-4"></span>
+                      <span class="bar bar-5"></span>
+                    </div>
+                    <div class="ustream-controls">
+                      <div class="ustream-play-btn"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study Content Grid -->
+          <div class="case-study-grid">
+            <div class="case-col case-col-narrative">
+              <div class="case-sub-block">
+                <h4>THE CHALLENGE</h4>
+                <p>
+                  UStream required a high-performance cross-platform music streaming platform leveraging React Native
+                  and Supabase for real-time synchronization.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE RESEARCH</h4>
+                <p>
+                  Audited streaming buffering patterns in high-transit zones, analyzing offline cache sync behaviors to
+                  design a robust database sync model.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DESIGN</h4>
+                <p>
+                  Structured a premium mobile layout built with fluid playback menus, audio frequency animations, and
+                  customizable user playlists.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DEVELOPMENT</h4>
+                <p>
+                  Built using React Native for a native iOS &amp; Android feel, utilizing Supabase for real-time
+                  database management, media storage, and offline sync capability.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-col case-col-output">
+              <div class="case-sub-block">
+                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
+                <p>
+                  Delivered a robust, high-performance music application that runs smoothly on mobile devices. Zero
+                  playback pauses were reported during commute tests across multiple regions.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>TECHNOLOGY STACK</h4>
+                <div class="case-tech-tokens">
+                  <span>React Native</span>
+                  <span>Supabase</span>
+                  <span>Redux</span>
+                  <span>Expo</span>
+                </div>
+              </div>
+              <div class="case-sub-block">
+                <h4>KEY METRICS</h4>
+                <div class="case-metrics-row">
+                  <div class="metric-box">
+                    <div class="metric-value">99.9%</div>
+                    <div class="metric-label">Crash-Free Sessions</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="metric-value">-60%</div>
+                    <div class="metric-label">Audio Buffer Latency</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Bakery Ecommerce -->
+        <div class="project-mini-landing" id="project-bakery">
+          <div class="mini-landing-hero">
+            <div class="mini-landing-title-wrap">
+              <span class="case-index">CASE STUDY 04</span>
+              <h3>Bakery Ecommerce</h3>
+              <p class="case-tagline">High-Performance Editorial E-Commerce Website</p>
+            </div>
+
+            <div class="mini-landing-mockup">
+              <div class="phones-split-frame">
+                <div class="phone-device-frame">
+                  <div class="phone-device-screen bakery-screen-a">
+                    <div class="bakery-brand-mock font-heading">Crusts</div>
+                  </div>
+                </div>
+                <div class="phone-device-frame phone-offset-y">
+                  <div class="phone-device-screen bakery-screen-b">
+                    <div class="bakery-cart-mock">
+                      <span>Cart Total</span>
+                      <h4>$24.00</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study Content Grid -->
+          <div class="case-study-grid">
+            <div class="case-col case-col-narrative">
+              <div class="case-sub-block">
+                <h4>THE CHALLENGE</h4>
+                <p>
+                  Standard template e-commerce stores fail to express luxury brand craftsmanship. The goal was to build
+                  a tailored editorial website that engages buyers and reduces drop-offs.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE RESEARCH</h4>
+                <p>
+                  Observed user buying cycles, identifying that load speed delays and multipage checkout procedures were
+                  the largest drivers of mobile shopping cart abandonment.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DESIGN</h4>
+                <p>
+                  Designed a minimal, typography-focused editorial layout utilizing clean serif fonts, high-resolution
+                  product photography, and an integrated single-action slide-out cart.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>THE DEVELOPMENT</h4>
+                <p>
+                  Built using React on the frontend and Node.js on the backend, utilizing Supabase for real-time
+                  database management and integrating Razorpay API for secure checkouts.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-col case-col-output">
+              <div class="case-sub-block">
+                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
+                <p>
+                  The brand relaunch drove checkout conversions and reduced page load latencies. Edge database
+                  synchronization and optimized queries ensure near-instantaneous page-to-interactive times worldwide.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>TECHNOLOGY STACK</h4>
+                <div class="case-tech-tokens">
+                  <span>React</span>
+                  <span>Node.js</span>
+                  <span>Razorpay</span>
+                  <span>Supabase</span>
+                </div>
+              </div>
+              <div class="case-sub-block">
+                <h4>KEY METRICS</h4>
+                <div class="case-metrics-row">
+                  <div class="metric-box">
+                    <div class="metric-value">+48%</div>
+                    <div class="metric-label">Mobile Conversion Rate</div>
+                  </div>
+                  <div class="metric-box">
+                    <div class="metric-value">62ms</div>
+                    <div class="metric-label">Time-to-Interactive</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Achievements -->
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <h2 class="section-title fade-in">Achievements</h2>
-            <div class="achievement-grid">
-                <div class="achievement-item fade-in">
-                    <h4>Praesto 2k24 Organizer</h4>
-                    <p>Successfully organized and managed the technical fest Praesto 2k24, coordinating multiple events and managing participant registration systems.</p>
-                </div>
-                <div class="achievement-item fade-in">
-                    <h4>Stratum Hackathon Organizer</h4>
-                    <p>Led the organization of Stratum Hackathon, facilitating innovation and collaboration among participants while managing technical infrastructure.</p>
-                </div>
-                <div class="achievement-item fade-in">
-                    <h4>Tech Head at ADSC</h4>
-                    <p>Appointed as Technical Head at ADSC, leading technical initiatives and mentoring fellow students in web development and emerging technologies.</p>
-                </div>
-                <div class="achievement-item fade-in">
-                    <h4>Multiple Internship Completions</h4>
-                    <p>Successfully completed internships at prestigious institutions including IIT Hyderabad, gaining valuable industry experience.</p>
-                </div>
-            </div>
-        </div>
+    </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Medisetty Umesh Kiran. All rights reserved.</p>
+    <!-- WHY UCREATES / PHILOSOPHY -->
+    <section id="philosophy" class="philosophy-section">
+      <div class="section-container">
+        <div class="philosophy-grid">
+          <div class="philosophy-intro">
+            <span class="section-tag">WHY UCREATES</span>
+            <h2 class="section-title">An Uncompromising Standard</h2>
+            <p class="philosophy-lead-paragraph">
+              We do not build templates. We do not copy competitor layouts. We exist for businesses that understand that
+              the quality of their digital interfaces represents the visual value of their brand.
+            </p>
+          </div>
+
+          <div class="philosophy-points-list">
+            <div class="philosophy-point-item reveal-item">
+              <span class="point-num">I</span>
+              <h4>AI-First Architecture</h4>
+              <p>We build cognitive models into the foundation of our software, not as an afterthought. Your platforms
+                will reason, optimize, and learn autonomously.</p>
+            </div>
+
+            <div class="philosophy-point-item reveal-item">
+              <span class="point-num">II</span>
+              <h4>Elite System Engineering</h4>
+              <p>We build with performant, compiled code bases. Our architectures are structured to load instantly,
+                handle extreme load, and run without runtime leaks.</p>
+            </div>
+
+            <div class="philosophy-point-item reveal-item">
+              <span class="point-num">III</span>
+              <h4>Uncompromising Design</h4>
+              <p>Our aesthetics represent modern editorial disciplines. We focus on letter spacing, grid alignment,
+                kinetic motion, and luxury minimalist interfaces.</p>
+            </div>
+
+            <div class="philosophy-point-item reveal-item">
+              <span class="point-num">IV</span>
+              <h4>Long-term Partnerships</h4>
+              <p>We scale alongside our clients, maintaining infrastructure, auditing security standards, and optimizing
+                conversion points long after deployment.</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION (Journey) -->
+    <section id="process" class="process-section">
+      <div class="section-container">
+        <div class="process-intro">
+          <span class="section-tag">THE PROCESS</span>
+          <h2 class="section-title">From Concept to Global Scale</h2>
+        </div>
+
+        <div class="process-timeline-wrapper">
+          <div class="timeline-progress-line">
+            <div class="timeline-progress-fill"></div>
+          </div>
+
+          <div class="timeline-steps">
+            <div class="timeline-step active" id="step-discover">
+              <div class="step-dot"></div>
+              <div class="step-content">
+                <span class="step-num">01 / STAGE</span>
+                <h4>Discover</h4>
+                <p>Aligning on software positioning, target client demographics, and performance benchmarks.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step" id="step-research">
+              <div class="step-dot"></div>
+              <div class="step-content">
+                <span class="step-num">02 / STAGE</span>
+                <h4>Research</h4>
+                <p>Mapping database relationships, auditing legacy code stacks, and designing data models.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step" id="step-design">
+              <div class="step-dot"></div>
+              <div class="step-content">
+                <span class="step-num">03 / STAGE</span>
+                <h4>Design</h4>
+                <p>Establishing design tokens, styling UI component grids, and drawing interactive prototype maps.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step" id="step-develop">
+              <div class="step-dot"></div>
+              <div class="step-content">
+                <span class="step-num">04 / STAGE</span>
+                <h4>Develop</h4>
+                <p>Writing production code, configuring cloud instances, and optimizing rendering pipes.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step" id="step-deploy">
+              <div class="step-dot"></div>
+              <div class="step-content">
+                <span class="step-num">05 / STAGE</span>
+                <h4>Deploy</h4>
+                <p>Running automation tests, executing load tests, and pointing DNS records to edge distributions.</p>
+              </div>
+            </div>
+
+            <div class="timeline-step" id="step-scale">
+              <div class="step-dot"></div>
+              <div class="step-content">
+                <span class="step-num">06 / STAGE</span>
+                <h4>Scale</h4>
+                <p>Auditing server metrics, deploying system feature upgrades, and caching dynamic layers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY STACK (Floating Mesh Cluster Map) -->
+    <section id="technology" class="tech-section">
+      <div class="section-container">
+        <div class="tech-layout-grid">
+          <div class="tech-text-block">
+            <span class="section-tag">ENGINEERING STACK</span>
+            <h2 class="section-title">An Elite Stack</h2>
+            <p>
+              We construct software using robust runtimes that enable maximum responsiveness and reliable enterprise
+              scaling. Hover over the nodes on our capability mesh to inspect core technologies.
+            </p>
+          </div>
+
+          <div class="tech-canvas-frame">
+            <div id="tech-canvas-container" class="tech-canvas-container">
+              <!-- Javascript will replace this with the abstract capability mesh -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="section-container">
+        <div class="testimonial-slider-wrap">
+          <div class="testimonial-panel reveal-text">
+            <blockquote>
+              "UCreates built our enterprise data pipeline and web interface. The final platform performs and looks
+              better than any software we have previously purchased. The quality of Umesh's execution is literally at
+              Apple's level."
+            </blockquote>
+            <div class="testimonial-client-card">
+              <div class="client-portrait-placeholder">✧</div>
+              <div class="client-meta">
+                <span class="client-name">Alexander Vance</span>
+                <span class="client-company">VP of Product, Pulse Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (Lead Capture Hub) -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="contact-grid-layout">
+          <div class="contact-story-panel">
+            <h2 class="section-title-large">
+              Let's build something<br />
+              <span class="gradient-text">exceptional.</span>
+            </h2>
+            <p class="contact-sub-paragraph">
+              Whether you need a custom enterprise SaaS, a secure automated pipeline, or a premium digital identity, we
+              can engineer it. Contact Umesh Kiran directly.
+            </p>
+
+            <div class="premium-contact-links">
+              <a href="mailto:umeshmedisetty@gmail.com" class="btn-magnetic premium-link-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <span>umeshmedisetty@gmail.com</span>
+              </a>
+              <a href="https://wa.me/918121693113?text=Hi%20Umesh,%20I'm%20interested%20in%20building%20a%20project."
+                target="_blank" rel="noopener noreferrer" class="btn-magnetic premium-link-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>Direct Message on WhatsApp</span>
+              </a>
+              <!-- <a href="#" class="btn-magnetic premium-link-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                  <path d="m9 16 2 2 4-4" />
+                </svg>
+                <span>Book a 15m Video Discovery Call</span>
+              </a> -->
+            </div>
+          </div>
+
+          <div class="contact-form-panel">
+            <form id="lead-form" class="premium-inquiry-form panel-glass">
+              <div class="input-row-split">
+                <div class="form-underline-group">
+                  <input type="text" id="form-name" placeholder="Name" required />
+                </div>
+                <div class="form-underline-group">
+                  <input type="email" id="form-email" placeholder="Email Address" required />
+                </div>
+              </div>
+
+
+              <div class="form-underline-group">
+                <textarea id="form-message" rows="4" placeholder="Briefly describe the software or product vision..."
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn-magnetic btn-submit btn-primary">
+                <span>Send Inquiry</span>
+              </button>
+              <div id="form-status" class="form-status-msg"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELEGANT FOOTER -->
+    <footer id="footer" class="footer-section">
+      <div class="section-container">
+        <div class="footer-layout-top">
+          <div class="footer-identity-block">
+            <h3>UCreates<span class="dot">✧</span></h3>
+            <p>Designing digital experiences and intelligent software architectures. Built for the AI era.</p>
+          </div>
+          <div class="footer-links-wrap">
+            <div class="footer-links-col">
+              <h5>Navigation</h5>
+              <a href="#about">About</a>
+              <a href="#services">Capabilities</a>
+              <a href="#projects">Works</a>
+              <a href="#philosophy">Philosophy</a>
+            </div>
+            <div class="footer-links-col">
+              <h5>Social networks</h5>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-layout-bottom">
+          <p class="copyright">&copy; 2026 UCreates. All rights reserved. Founded by Umesh Kiran.</p>
+          <p class="studio-sig">Crafted with precision &amp; code.</p>
+        </div>
+      </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
+  </main>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu if open
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    
-                    // Animate skill bars
-                    if (entry.target.classList.contains('skill-category')) {
-                        const skillBars = entry.target.querySelectorAll('.skill-progress');
-                        skillBars.forEach(bar => {
-                            const width = bar.getAttribute('data-width');
-                            setTimeout(() => {
-                                bar.style.width = width + '%';
-                            }, 200);
-                        });
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in, .timeline-item, .project-card').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'var(--bg-primary)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Add typing effect to hero subtitle
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const subtitle = document.querySelector('.hero .subtitle');
-                typeWriter(subtitle, 'Web Developer', 150);
-            }, 500);
-        });
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
-        });
-
-        // Add click effect to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-
-        // Add this to the existing JavaScript, replace the timeline animation part:
-const timelineCards = document.querySelectorAll('.timeline-card');
-timelineCards.forEach((card, index) => {
-    observer.observe(card);
-    card.style.transitionDelay = `${index * 0.2}s`;
-});
-    </script>
+  <!-- Main Module JS -->
+  <script type="module" src="/src/main.js"></script>
 </body>
+
 </html>
