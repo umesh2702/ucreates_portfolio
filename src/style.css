@@ -1882,18 +1882,173 @@ body.hovering-interactive .cursor-glow {
   font-weight: 500;
   font-size: 0.95rem;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast);
 }
 
-.btn-submit:hover {
+.btn-submit:hover:not(:disabled) {
   background-color: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border-focus);
 }
 
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Spinner Animation styling */
+.btn-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  width: 20px;
+  height: 20px;
+}
+
+.spinner .path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
 .form-status-msg {
   font-size: 0.85rem;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
+  min-height: 20px;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.form-status-msg.error-msg {
+  color: #ff4d4d; /* Elegant premium soft red */
+}
+
+.form-status-msg.success-msg {
+  color: #00ff66; /* Elegant premium soft green */
+}
+
+/* 9.1 PREMIUM SUCCESS STATE */
+.premium-success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 50px 40px;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: #00ff66;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.success-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+}
+
+.success-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.success-text {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.success-subtext {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.success-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.success-actions button, 
+.success-actions a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  transition: all var(--transition-fast);
+}
+
+.success-btn-home {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.success-btn-home:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.success-btn-wa {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border: none;
+}
+
+.success-btn-wa:hover {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-focus);
 }
 
 /* 10. ELEGANT MASSIVE FOOTER */

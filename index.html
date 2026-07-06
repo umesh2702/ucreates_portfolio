@@ -1026,26 +1026,61 @@
 
           <div class="contact-form-panel">
             <form id="lead-form" class="premium-inquiry-form panel-glass">
+              <!-- Web3Forms Config -->
+              <!-- Paste your Web3Forms Access Key here replacing the value below -->
+              <input type="hidden" name="access_key" value="522d60df-6177-480c-a296-ced9d4b3cd4c" />
+              <input type="hidden" name="subject" value="🚀 New Project Inquiry - UCreates Portfolio" />
+              <input type="hidden" name="from_name" value="UCreates Portfolio" />
+
+              <!-- Botcheck honeypot for anti-spam protection -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
               <div class="input-row-split">
                 <div class="form-underline-group">
-                  <input type="text" id="form-name" placeholder="Name" required />
+                  <input type="text" id="form-name" name="name" placeholder="Name" required />
                 </div>
                 <div class="form-underline-group">
-                  <input type="email" id="form-email" placeholder="Email Address" required />
+                  <input type="email" id="form-email" name="email" placeholder="Email Address" required />
                 </div>
               </div>
 
-
               <div class="form-underline-group">
-                <textarea id="form-message" rows="4" placeholder="Briefly describe the software or product vision..."
-                  required></textarea>
+                <textarea id="form-message" name="message" rows="4"
+                  placeholder="Briefly describe the software or product vision..." required></textarea>
               </div>
 
               <button type="submit" class="btn-magnetic btn-submit btn-primary">
-                <span>Send Inquiry</span>
+                <span class="btn-text">Send Inquiry</span>
+                <span class="btn-loader" style="display: none;">
+                  <svg class="spinner" viewBox="0 0 50 50">
+                    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                  </svg>
+                </span>
               </button>
               <div id="form-status" class="form-status-msg"></div>
             </form>
+
+            <!-- Premium Success State Screen -->
+            <div id="lead-success" class="premium-success-state panel-glass" style="display: none; opacity: 0;">
+              <div class="success-icon">✓</div>
+              <h3 class="success-title">Inquiry Sent Successfully</h3>
+              <p class="success-subtitle">Thank you for contacting UCreates.</p>
+              <p class="success-text">
+                We've received your project inquiry and our team will review it shortly.
+              </p>
+              <p class="success-subtext">
+                You can expect a response within one business day.
+              </p>
+              <div class="success-actions">
+                <button type="button" class="btn-magnetic btn-secondary success-btn-home">
+                  <span>Back to Home</span>
+                </button>
+                <a href="https://wa.me/918121693113?text=Hi%20Umesh,%20I'm%20interested%20in%20building%20a%20project."
+                  target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-primary success-btn-wa">
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

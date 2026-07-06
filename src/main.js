@@ -164,6 +164,7 @@ function setupMagneticButtons() {
   
   elements.forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
+      if (btn.disabled || btn.hasAttribute('disabled')) return;
       const rect = btn.getBoundingClientRect();
       // Mouse coordinates relative to button center
       const x = e.clientX - rect.left - rect.width / 2;
@@ -229,32 +230,153 @@ function setupHeaderScroll() {
 function setupContactForm() {
   const form = document.getElementById('lead-form');
   const status = document.getElementById('form-status');
+  const successState = document.getElementById('lead-success');
   
-  if (!form || !status) return;
+  if (!form || !status || !successState) return;
+  
+  // Validation helper
+  function validateForm(name, email, message) {
+    if (!name.trim()) {
+      return "Name is required.";
+    }
+    if (!email.trim()) {
+      return "Email Address is required.";
+    }
+    // Simple robust email format regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return "Please enter a valid email address.";
+    }
+    if (!message.trim()) {
+      return "Message is required.";
+    }
+    return null;
+  }
   
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
+    // Gather values
+    const nameVal = document.getElementById('form-name').value;
+    const emailVal = document.getElementById('form-email').value;
+    const messageVal = document.getElementById('form-message').value;
+    
+    // Reset status styles and text
+    status.textContent = '';
+    status.className = 'form-status-msg';
+    
+    // Perform JS Validation
+    const validationError = validateForm(nameVal, emailVal, messageVal);
+    if (validationError) {
+      status.textContent = validationError;
+      status.classList.add('error-msg');
+      return;
+    }
+    
     // Animate button during "submission"
     const submitBtn = form.querySelector('.btn-submit');
-    const originalText = submitBtn.querySelector('span').textContent;
-    submitBtn.querySelector('span').textContent = 'Transmission in progress...';
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    
+    btnText.textContent = 'Sending Inquiry...';
+    btnLoader.style.display = 'inline-flex';
     submitBtn.disabled = true;
     
-    setTimeout(() => {
-      // Simulate success response
-      status.style.color = '#00ff66';
-      status.textContent = 'Transmission complete. Mesh connection established. We will respond shortly.';
-      submitBtn.querySelector('span').textContent = 'Inquiry Sent';
+    // Prepare Web3Forms payload
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+    .then(async (response) => {
+      let jsonRes;
+      try {
+        jsonRes = await response.json();
+      } catch (err) {
+        throw new Error('Response is not in JSON format.');
+      }
       
-      form.reset();
-      
-      // Remove status message after a few seconds
-      setTimeout(() => {
-        status.textContent = '';
-        submitBtn.querySelector('span').textContent = originalText;
-        submitBtn.disabled = false;
-      }, 5000);
-    }, 1500);
+      if (response.status === 200 && jsonRes.success) {
+        // Successful submission
+        // 1. Reset all form fields
+        form.reset();
+        
+        // 2. Animate form out and success state in
+        gsap.to(form, {
+          opacity: 0,
+          y: -20,
+          duration: 0.5,
+          ease: 'power2.out',
+          onComplete: () => {
+            form.style.display = 'none';
+            successState.style.display = 'flex';
+            gsap.fromTo(successState,
+              { opacity: 0, y: 20 },
+              { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+            );
+          }
+        });
+      } else {
+        throw new Error(jsonRes.message || 'Submission failed');
+      }
+    })
+    .catch((error) => {
+      console.error('Web3Forms Error:', error);
+      status.textContent = "We couldn't send your inquiry right now. Please try again in a moment.";
+      status.classList.add('error-msg');
+    })
+    .finally(() => {
+      // Re-enable button and reset layout state in case of failure or return
+      btnText.textContent = 'Send Inquiry';
+      btnLoader.style.display = 'none';
+      submitBtn.disabled = false;
+    });
   });
+  
+  // Connect Back to Home actions
+  const backHomeBtn = successState.querySelector('.success-btn-home');
+  if (backHomeBtn) {
+    backHomeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Animate success screen out and form back in
+      gsap.to(successState, {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        ease: 'power2.out',
+        onComplete: () => {
+          successState.style.display = 'none';
+          
+          // Clear status messages and reset form element states
+          status.textContent = '';
+          status.className = 'form-status-msg';
+          
+          const submitBtn = form.querySelector('.btn-submit');
+          submitBtn.disabled = false;
+          form.querySelector('.btn-text').textContent = 'Send Inquiry';
+          form.querySelector('.btn-loader').style.display = 'none';
+          
+          form.style.display = 'flex';
+          gsap.fromTo(form,
+            { opacity: 0, y: -20 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+          );
+        }
+      });
+      
+      // Scroll back to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 }
