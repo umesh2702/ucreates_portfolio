@@ -1,3 +1,16 @@
+export const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzVPBOfzSIO2PiD8k2Q8M7zfcSzrp4fTdWYe6M4abJYQKHP94agVnTqnlN8ZIkK2wJ1/exec";
+export const GOOGLE_SCRIPT_URL = GOOGLE_APPS_SCRIPT_URL;
+
+/**
+ * PROJECT DEMO URL REGISTRY
+ * Discovered demo URLs and placeholders for upcoming deployments:
+ */
+export const PROJECT_DEMO_URLS = {
+  ULINK_LIVE: "https://live-pi-seven.vercel.app/",
+  ISDSI_SUMMIT: null, // Placeholder: Supply live demo URL when deployed
+  ITIHAAS_VALET: "https://valet-77y7.vercel.app/"
+};
+
 import './style.css';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
@@ -226,127 +239,104 @@ function setupHeaderScroll() {
   });
 }
 
-// Contact Lead Generation Form Handling
+// Google Apps Script Contact Lead Generation Form Handling
 function setupContactForm() {
   const form = document.getElementById('lead-form');
   const status = document.getElementById('form-status');
   const successState = document.getElementById('lead-success');
-  
+
   if (!form || !status || !successState) return;
-  
-  // Validation helper
+
   function validateForm(name, email, message) {
-    if (!name.trim()) {
-      return "Name is required.";
-    }
-    if (!email.trim()) {
-      return "Email Address is required.";
-    }
-    // Simple robust email format regex
+    if (!name.trim()) return "Full Name is required.";
+    if (!email.trim()) return "Email Address is required.";
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.trim())) {
-      return "Please enter a valid email address.";
-    }
-    if (!message.trim()) {
-      return "Message is required.";
-    }
+    if (!emailRegex.test(email.trim())) return "Please enter a valid email address.";
+    if (!message.trim()) return "Message is required.";
     return null;
   }
-  
-  form.addEventListener('submit', (e) => {
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Gather values
-    const nameVal = document.getElementById('form-name').value;
-    const emailVal = document.getElementById('form-email').value;
-    const messageVal = document.getElementById('form-message').value;
-    
-    // Reset status styles and text
+
+    const name = document.getElementById('form-name').value;
+    const email = document.getElementById('form-email').value;
+    const phone = document.getElementById('form-phone').value;
+    const serviceSelect = document.getElementById('form-service');
+    const service = serviceSelect ? serviceSelect.value : '';
+    const message = document.getElementById('form-message').value;
+
     status.textContent = '';
     status.className = 'form-status-msg';
-    
-    // Perform JS Validation
-    const validationError = validateForm(nameVal, emailVal, messageVal);
+
+    const validationError = validateForm(name, email, message);
     if (validationError) {
       status.textContent = validationError;
       status.classList.add('error-msg');
       return;
     }
-    
-    // Animate button during "submission"
+
     const submitBtn = form.querySelector('.btn-submit');
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoader = submitBtn.querySelector('.btn-loader');
-    
-    btnText.textContent = 'Sending Inquiry...';
-    btnLoader.style.display = 'inline-flex';
+
+    btnText.textContent = 'Submitting...';
+    if (btnLoader) btnLoader.style.display = 'inline-flex';
     submitBtn.disabled = true;
-    
-    // Prepare Web3Forms payload
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-    
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: json
-    })
-    .then(async (response) => {
-      let jsonRes;
-      try {
-        jsonRes = await response.json();
-      } catch (err) {
-        throw new Error('Response is not in JSON format.');
+
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      service: service.trim(),
+      message: message.trim()
+    };
+
+    try {
+      if (!GOOGLE_APPS_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL.includes('YOUR_APPS_SCRIPT_WEB_APP_ID_HERE')) {
+        status.textContent = "Google Apps Script Web App endpoint is not yet configured. Please supply the URL in src/main.js.";
+        status.classList.add('error-msg');
+        return;
       }
-      
-      if (response.status === 200 && jsonRes.success) {
-        // Successful submission
-        // 1. Reset all form fields
-        form.reset();
-        
-        // 2. Animate form out and success state in
-        gsap.to(form, {
-          opacity: 0,
-          y: -20,
-          duration: 0.5,
-          ease: 'power2.out',
-          onComplete: () => {
-            form.style.display = 'none';
-            successState.style.display = 'flex';
-            gsap.fromTo(successState,
-              { opacity: 0, y: 20 },
-              { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
-            );
-          }
-        });
-      } else {
-        throw new Error(jsonRes.message || 'Submission failed');
-      }
-    })
-    .catch((error) => {
-      console.error('Web3Forms Error:', error);
-      status.textContent = "We couldn't send your inquiry right now. Please try again in a moment.";
+
+      await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      form.reset();
+      gsap.to(form, {
+        opacity: 0,
+        y: -20,
+        duration: 0.5,
+        ease: 'power2.out',
+        onComplete: () => {
+          form.style.display = 'none';
+          successState.style.display = 'flex';
+          gsap.fromTo(successState,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+          );
+        }
+      });
+    } catch (error) {
+      console.error('Google Apps Script Submission Error:', error);
+      status.textContent = "Unable to process enquiry right now. Please try again or email umesh@ucreates.online.";
       status.classList.add('error-msg');
-    })
-    .finally(() => {
-      // Re-enable button and reset layout state in case of failure or return
-      btnText.textContent = 'Send Inquiry';
-      btnLoader.style.display = 'none';
+    } finally {
+      btnText.textContent = 'Submit Enquiry';
+      if (btnLoader) btnLoader.style.display = 'none';
       submitBtn.disabled = false;
-    });
+    }
   });
-  
-  // Connect Back to Home actions
+
   const backHomeBtn = successState.querySelector('.success-btn-home');
   if (backHomeBtn) {
     backHomeBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Animate success screen out and form back in
       gsap.to(successState, {
         opacity: 0,
         y: 20,
@@ -354,28 +344,14 @@ function setupContactForm() {
         ease: 'power2.out',
         onComplete: () => {
           successState.style.display = 'none';
-          
-          // Clear status messages and reset form element states
           status.textContent = '';
           status.className = 'form-status-msg';
-          
-          const submitBtn = form.querySelector('.btn-submit');
-          submitBtn.disabled = false;
-          form.querySelector('.btn-text').textContent = 'Send Inquiry';
-          form.querySelector('.btn-loader').style.display = 'none';
-          
           form.style.display = 'flex';
           gsap.fromTo(form,
             { opacity: 0, y: -20 },
             { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
           );
         }
-      });
-      
-      // Scroll back to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
       });
     });
   }

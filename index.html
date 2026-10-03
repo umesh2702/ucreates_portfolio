@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✧</text></svg>" />
+  <link rel="icon" type="image/png" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UCreates | Premium AI Software &amp; Design Studio</title>
   <meta name="description"
@@ -40,6 +39,7 @@
   <!-- Minimalist Preloader -->
   <div id="loader" class="loader">
     <div class="loader-content">
+      <img src="/logo.png" alt="UCreates Logo" class="loader-logo-img" />
       <div class="loader-brand">UCreates</div>
       <div class="loader-bar-container">
         <div class="loader-bar"></div>
@@ -52,7 +52,8 @@
   <header class="main-header">
     <div class="header-container">
       <a href="#" class="logo">
-        UCreates<span class="dot">✧</span>
+        <img src="/logo.png" alt="UCreates Logo" class="brand-logo-icon" />
+        <span>UCreates<span class="dot">✧</span></span>
       </a>
       <nav class="nav-links">
         <a href="#about" class="nav-link">About</a>
@@ -141,9 +142,8 @@
               </p>
             </div>
             <div class="narrative-visual reveal-item">
-              <div class="media-placeholder frame-glass">
-                <!-- Abstract geometric shape layout -->
-                <div class="abstract-shape shape-a"></div>
+              <div class="media-placeholder frame-glass" style="display: flex; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(13, 17, 23, 0.6);">
+                <img src="/logo-card.jpg" alt="UCreates Studio Brand Mark" style="max-width: 90%; max-height: 280px; object-fit: contain; border-radius: 12px; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.5));" />
               </div>
             </div>
           </div>
@@ -402,7 +402,7 @@
       </div>
     </section>
 
-    <!-- PROJECTS SHOWCASE SECTION (Apple Product Page Feel) -->
+    <!-- PROJECTS SHOWCASE SECTION (Editorial Case Studies) -->
     <section id="projects" class="projects-section">
       <div class="section-container">
         <div class="projects-section-header">
@@ -410,127 +410,36 @@
           <h2 class="section-title">Case Studies in Product Craftsmanship</h2>
         </div>
 
-        <!-- Project 1: Pulse AI -->
-        <div class="project-mini-landing" id="project-pulse">
+        <!-- Project 1: ULink Live -->
+        <div class="project-mini-landing" id="project-ulink">
           <div class="mini-landing-hero">
             <div class="mini-landing-title-wrap">
-              <span class="case-index">CASE STUDY 01</span>
-              <h3>Pulse AI</h3>
-              <p class="case-tagline">Autonomous Enterprise Inventory Decision Engine (Under Development)</p>
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <span class="case-index">CASE STUDY 01</span>
+                <span class="ulink-status-tag" style="background: rgba(0, 82, 255, 0.15); color: #47bfff; border: 1px solid rgba(0, 82, 255, 0.3); padding: 4px 10px; border-radius: 12px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;">IN BUILDING</span>
+              </div>
+              <span class="project-category-tag" style="font-size: 0.75rem; color: var(--accent-blue); font-weight: 600; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">EVENT TECHNOLOGY</span>
+              <h3>ULink Live</h3>
+              <p class="case-tagline">A digital event experience platform that connects physical events with digital experiences through event information, schedules, attendee discovery, networking, and QR/NFC touchpoints.</p>
             </div>
 
             <div class="mini-landing-mockup">
               <div class="laptop-device-frame">
                 <div class="laptop-device-screen">
-                  <div class="pulse-ai-visuals">
-                    <div class="pulse-radar-dot"></div>
-                    <div class="pulse-radar-circle"></div>
-                    <div class="pulse-status-panel">
-                      <span>System Sandbox State</span>
-                      <strong>DEVELOPMENT ACTIVE // ALPHA 0.4</strong>
+                  <div class="ulink-visuals">
+                    <div class="ulink-visual-header">
+                      <span class="ulink-logo">ULink Live<span class="dot">✧</span></span>
+                      <span class="ulink-status-tag">IN BUILDING</span>
                     </div>
-                  </div>
-                </div>
-                <div class="laptop-device-base"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Case Study Content Grid -->
-          <div class="case-study-grid">
-            <div class="case-col case-col-narrative">
-              <div class="case-sub-block">
-                <h4>THE CHALLENGE</h4>
-                <p>
-                  Reducing global logistical latency and waste. Our enterprise client targets a substantial decrease in
-                  monthly dead inventory waste by shifting from reactive tracking to automated forecasting.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE RESEARCH</h4>
-                <p>
-                  Analyzing multi-modal supply chains and transit patterns to establish route delays. Predictive
-                  algorithms are being calibrated using atmospheric and variable route-load datasets.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE DESIGN</h4>
-                <p>
-                  Drafting clean dashboards designed for low cognitive load, focusing on early alert pipelines, dynamic
-                  re-routing workflows, and quick-action response override triggers.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE DEVELOPMENT</h4>
-                <p>
-                  Currently engineering the core models with a TypeScript/Next.js interface and Python/FastAPI backend,
-                  utilizing LangChain agents to parse real-time logistics logs.
-                </p>
-              </div>
-            </div>
-
-            <div class="case-col case-col-output">
-              <div class="case-sub-block">
-                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
-                <p>
-                  System is undergoing closed sandbox testing. Initial staging runs demonstrate reliable predictive
-                  capabilities. Full alpha release and partner integration scheduled for Q4 2026.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>TECHNOLOGY STACK</h4>
-                <div class="case-tech-tokens">
-                  <span>Next.js</span>
-                  <span>FastAPI</span>
-                  <span>PostgreSQL</span>
-                  <span>LangChain</span>
-                  <span>OpenAI API</span>
-                </div>
-              </div>
-              <div class="case-sub-block">
-                <h4>KEY METRICS</h4>
-                <div class="case-metrics-row">
-                  <div class="metric-box">
-                    <div class="metric-value">Staging</div>
-                    <div class="metric-label">Deployment Env</div>
-                  </div>
-                  <div class="metric-box">
-                    <div class="metric-value">Alpha 0.4</div>
-                    <div class="metric-label">Active Build Version</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Outlaw Store -->
-        <div class="project-mini-landing" id="project-outlaw">
-          <div class="mini-landing-hero">
-            <div class="mini-landing-title-wrap">
-              <span class="case-index">CASE STUDY 02</span>
-              <h3>Outlaw</h3>
-              <p class="case-tagline">Premium Streetwear &amp; High-Performance Next.js E-Commerce</p>
-            </div>
-
-            <div class="mini-landing-mockup">
-              <div class="laptop-device-frame">
-                <div class="laptop-device-screen">
-                  <div class="outlaw-store-visuals">
-                    <div class="outlaw-store-glow"></div>
-                    <div class="outlaw-store-header">
-                      <span class="outlaw-logo">OUTLAW✧</span>
-                      <div class="outlaw-nav">
-                        <span>Catalog</span>
-                        <span>Cart</span>
+                    <div class="ulink-visual-body">
+                      <div class="ulink-card active">
+                        <span class="card-time">10:00 AM &bull; MAIN STAGE</span>
+                        <h4>Keynote: The Future of Autonomous Systems</h4>
+                        <span class="card-meta">Live Agenda Sync Active</span>
                       </div>
-                    </div>
-                    <div class="outlaw-store-hero">
-                      <div class="outlaw-product-preview">
-                        <div class="outlaw-product-tag">SIGNATURE</div>
-                        <h4>Skull Graphic Tee</h4>
-                        <p>₹55</p>
-                        <div class="outlaw-btn">Shop Now</div>
+                      <div class="ulink-card">
+                        <span class="card-time">11:30 AM &bull; NETWORKING HUB</span>
+                        <h4>Founders Directory &amp; Connections</h4>
                       </div>
                     </div>
                   </div>
@@ -544,104 +453,181 @@
           <div class="case-study-grid">
             <div class="case-col case-col-narrative">
               <div class="case-sub-block">
-                <h4>THE CHALLENGE</h4>
+                <h4>PROBLEM / OPPORTUNITY</h4>
                 <p>
-                  Streetwear brand Outlaw required a high-performance, dark-themed editorial storefront that translates
-                  raw counter-culture design into frictionless, lightning-fast digital checkouts.
+                  Tech conferences and founder network events frequently suffer from fragmented attendee communication, clunky paper agendas, and weak networking engagement during live sessions.
                 </p>
               </div>
               <div class="case-sub-block">
-                <h4>THE RESEARCH</h4>
+                <h4>SOLUTION</h4>
                 <p>
-                  Analyzed modern fashion UX behaviors. Streetwear buyers expect immediate image rendering,
-                  high-contrast layouts, and dynamic animations that reflect brand aesthetic without page load delays.
+                  ULink Live is a mobile-first digital event companion platform that delivers real-time agenda synchronization, attendee profile discovery, direct founder networking connections, and instant speaker announcements.
                 </p>
               </div>
               <div class="case-sub-block">
-                <h4>THE DESIGN</h4>
+                <h4>KEY FEATURES</h4>
                 <p>
-                  Structured an intense, dark-themed responsive experience utilizing bold typography, deep grays, rich
-                  red accent glows, smooth hover-scaling product grids, and a single-view sliding drawer cart.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE DEVELOPMENT</h4>
-                <p>
-                  Engineered using Next.js App Router, Tailwind CSS, and Razorpay integrations. Applied server-side
-                  caching and image optimizations to guarantee sub-second page performance.
+                  Real-time agenda timeline sync &bull; Attendee profile &amp; networking directory &bull; Interactive session bookmarking &bull; Instant organizer broadcast alerts &bull; QR &amp; NFC touchpoints.
                 </p>
               </div>
             </div>
 
             <div class="case-col case-col-output">
               <div class="case-sub-block">
-                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
+                <h4>ACTUAL IMPLEMENTATION STATUS</h4>
                 <p>
-                  Outlaw launched a striking, premium storefront that converts visitors with high efficiency. The
-                  seamless page transit speeds and fast payment flows resulted in positive customer engagement.
+                  <strong>In Building // Active Development</strong><br />
+                  Core mobile-first event microsite and attendee directory architecture active; live real-time synchronization modules currently under active engineering.
                 </p>
               </div>
               <div class="case-sub-block">
                 <h4>TECHNOLOGY STACK</h4>
                 <div class="case-tech-tokens">
-                  <span>Next.js</span>
-                  <span>Tailwind CSS</span>
-                  <span>Razorpay API</span>
-                  <span>Vercel</span>
+                  <span>HTML5</span>
+                  <span>JavaScript</span>
+                  <span>Vanilla CSS</span>
+                  <span>Node.js</span>
+                  <span>Vite</span>
                 </div>
               </div>
               <div class="case-sub-block">
-                <h4>KEY METRICS</h4>
-                <div class="case-metrics-row">
-                  <div class="metric-box">
-                    <div class="metric-value">98/100</div>
-                    <div class="metric-label">PageSpeed Score</div>
-                  </div>
-                  <div class="metric-box">
-                    <div class="metric-value">&lt; 150ms</div>
-                    <div class="metric-label">Route Transition</div>
-                  </div>
+                <h4>PROJECT ACCESS</h4>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+                  <a href="https://live-pi-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-primary" style="display: inline-flex; gap: 8px; padding: 10px 18px; font-size: 0.8rem;">
+                    <span>Explore Project</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                  <a href="#contact" class="btn-magnetic btn-secondary" style="display: inline-flex; gap: 8px; padding: 10px 18px; font-size: 0.8rem;">
+                    <span>Request Platform Demo</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Project 3: UStream Mobile App -->
-        <div class="project-mini-landing" id="project-ustream">
+        <!-- Project 2: ISDSI Global Investment Summit 2026 -->
+        <div class="project-mini-landing" id="project-isdsi">
           <div class="mini-landing-hero">
             <div class="mini-landing-title-wrap">
-              <span class="case-index">CASE STUDY 03</span>
-              <h3>UStream</h3>
-              <p class="case-tagline">React Native &amp; Supabase Music Streaming Application</p>
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <span class="case-index">CASE STUDY 02</span>
+                <span class="isdsi-status-tag" style="background: rgba(138, 43, 226, 0.15); color: #a78bfa; border: 1px solid rgba(138, 43, 226, 0.3); padding: 4px 10px; border-radius: 12px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;">CONCEPT DEMO</span>
+              </div>
+              <span class="project-category-tag" style="font-size: 0.75rem; color: #a78bfa; font-weight: 600; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">DIGITAL EVENT EXPERIENCE</span>
+              <h3>ISDSI Global Investment Summit 2026</h3>
+              <p class="case-tagline">A digital event experience concept developed around the summit, showcasing how attendees can access event information, schedules, and other event-related content through a dedicated digital interface.</p>
             </div>
 
             <div class="mini-landing-mockup">
-              <div class="phone-device-frame">
-                <div class="phone-device-screen ustream-screen">
-                  <div class="ustream-player-layout">
-                    <div class="ustream-player-header">
-                      <span>Library</span>
-                      <span>UStream✧</span>
+              <div class="laptop-device-frame">
+                <div class="laptop-device-screen">
+                  <div class="isdsi-visuals">
+                    <div class="isdsi-visual-header">
+                      <span class="isdsi-logo">ISDSI SUMMIT 2026<span class="dot">✧</span></span>
+                      <span class="isdsi-status-tag">CONCEPT DEMO</span>
                     </div>
-                    <div class="ustream-album-art-wrap">
-                      <div class="ustream-album-art-glow"></div>
-                      <div class="ustream-album-art">✧</div>
+                    <div class="isdsi-visual-body">
+                      <div class="isdsi-card active">
+                        <span class="card-time" style="color: #a78bfa;">GLOBAL STAGE &bull; 09:30 AM</span>
+                        <h4>Global Investment &amp; AI Infrastructure Keynote</h4>
+                        <span class="card-meta">Interactive Track Guide</span>
+                      </div>
+                      <div class="isdsi-card">
+                        <span class="card-time" style="color: var(--text-muted);">DELEGATE HUB &bull; 11:00 AM</span>
+                        <h4>Cross-Border Venture Capital &amp; Innovation Panel</h4>
+                      </div>
                     </div>
-                    <div class="ustream-track-meta">
-                      <h4>Ethereal Frequency</h4>
-                      <span>Soundwave Resonance</span>
+                  </div>
+                </div>
+                <div class="laptop-device-base"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study Content Grid -->
+          <div class="case-study-grid">
+            <div class="case-col case-col-narrative">
+              <div class="case-sub-block">
+                <h4>PROBLEM / OPPORTUNITY</h4>
+                <p>
+                  High-profile global investment summits require structured digital agendas, speaker showcases, and seamless attendee orientation across multi-track summit schedules.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>SOLUTION</h4>
+                <p>
+                  A digital event experience concept developed around the summit, showcasing how attendees can access event information, schedules, and other event-related content through a dedicated digital interface.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>KEY FEATURES</h4>
+                <p>
+                  Multi-track summit schedule layout &bull; Keynote speaker directory concept &bull; Mobile-responsive delegate orientation &bull; Summit theme integration &bull; Instant session details.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-col case-col-output">
+              <div class="case-sub-block">
+                <h4>ACTUAL IMPLEMENTATION STATUS</h4>
+                <p>
+                  <strong>Concept Demo // Demonstration Project</strong><br />
+                  Interactive UI/UX concept and event interface prototype showcasing summit delegate workflows.
+                </p>
+              </div>
+              <div class="case-sub-block">
+                <h4>TECHNOLOGY STACK</h4>
+                <div class="case-tech-tokens">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>GSAP</span>
+                  <span>Web Components</span>
+                </div>
+              </div>
+              <div class="case-sub-block">
+                <h4>PROJECT ACCESS</h4>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+                  <a href="#contact" class="btn-magnetic btn-primary" style="display: inline-flex; gap: 8px; padding: 10px 18px; font-size: 0.8rem;">
+                    <span>View Concept Demo</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                  <a href="#contact" class="btn-magnetic btn-secondary" style="display: inline-flex; gap: 8px; padding: 10px 18px; font-size: 0.8rem;">
+                    <span>View Case Study</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Itihaas Restaurant & Banquets: Valet Parking -->
+        <div class="project-mini-landing" id="project-valet">
+          <div class="mini-landing-hero">
+            <div class="mini-landing-title-wrap">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <span class="case-index">CASE STUDY 03</span>
+                <span class="valet-status-tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); padding: 4px 10px; border-radius: 12px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;">PROTOTYPE / CONCEPT</span>
+              </div>
+              <span class="project-category-tag" style="font-size: 0.75rem; color: #10b981; font-weight: 600; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">MOBILITY &amp; AUTOMATION</span>
+              <h3>Digital Valet Parking Experience</h3>
+              <p class="case-tagline">A valet parking solution concept designed for a hospitality venue (Itihaas Restaurant &amp; Banquets), exploring how digital vehicle check-in, parking status, and vehicle retrieval requests could make the valet experience easier for guests and staff.</p>
+            </div>
+
+            <div class="mini-landing-mockup">
+              <div class="phone-frame-mockup">
+                <div class="phone-frame-screen">
+                  <div class="valet-app-mock">
+                    <div class="valet-ticket-header">
+                      <span>ITIHAAS VALET TICKET #4092</span>
+                      <strong class="status-active">VEHICLE PARKED</strong>
                     </div>
-                    <div class="ustream-spectrum">
-                      <span class="bar bar-1"></span>
-                      <span class="bar bar-2"></span>
-                      <span class="bar bar-3"></span>
-                      <span class="bar bar-4"></span>
-                      <span class="bar bar-5"></span>
+                    <div class="valet-qr-block">
+                      <div class="qr-placeholder">✧ QR ✧</div>
+                      <span>Scan to Track / Call Vehicle</span>
                     </div>
-                    <div class="ustream-controls">
-                      <div class="ustream-play-btn"></div>
-                    </div>
+                    <div class="valet-action-btn">Request Vehicle Retrieval</div>
                   </div>
                 </div>
               </div>
@@ -652,158 +638,53 @@
           <div class="case-study-grid">
             <div class="case-col case-col-narrative">
               <div class="case-sub-block">
-                <h4>THE CHALLENGE</h4>
+                <h4>PROBLEM / OPPORTUNITY</h4>
                 <p>
-                  UStream required a high-performance cross-platform music streaming platform leveraging React Native
-                  and Supabase for real-time synchronization.
+                  Hospitality venues like Itihaas Restaurant &amp; Banquets experience parking bottlenecks, lost paper valet stubs, and manual delay during guest vehicle retrieval at peak dining hours.
                 </p>
               </div>
               <div class="case-sub-block">
-                <h4>THE RESEARCH</h4>
+                <h4>SOLUTION</h4>
                 <p>
-                  Audited streaming buffering patterns in high-transit zones, analyzing offline cache sync behaviors to
-                  design a robust database sync model.
+                  A valet parking solution concept designed for a hospitality venue, exploring how digital vehicle check-in, parking status, and vehicle retrieval requests could make the valet experience easier for guests and staff.
                 </p>
               </div>
               <div class="case-sub-block">
-                <h4>THE DESIGN</h4>
+                <h4>KEY FEATURES</h4>
                 <p>
-                  Structured a premium mobile layout built with fluid playback menus, audio frequency animations, and
-                  customizable user playlists.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE DEVELOPMENT</h4>
-                <p>
-                  Built using React Native for a native iOS &amp; Android feel, utilizing Supabase for real-time
-                  database management, media storage, and offline sync capability.
+                  Digital QR ticket generation &bull; Guest one-tap vehicle retrieval request &bull; Staff bay management UI concept &bull; Real-time vehicle status tracking &bull; Paperless check-in workflow.
                 </p>
               </div>
             </div>
 
             <div class="case-col case-col-output">
               <div class="case-sub-block">
-                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
+                <h4>ACTUAL IMPLEMENTATION STATUS</h4>
                 <p>
-                  Delivered a robust, high-performance music application that runs smoothly on mobile devices. Zero
-                  playback pauses were reported during commute tests across multiple regions.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>TECHNOLOGY STACK</h4>
-                <div class="case-tech-tokens">
-                  <span>React Native</span>
-                  <span>Supabase</span>
-                  <span>Redux</span>
-                  <span>Expo</span>
-                </div>
-              </div>
-              <div class="case-sub-block">
-                <h4>KEY METRICS</h4>
-                <div class="case-metrics-row">
-                  <div class="metric-box">
-                    <div class="metric-value">99.9%</div>
-                    <div class="metric-label">Crash-Free Sessions</div>
-                  </div>
-                  <div class="metric-box">
-                    <div class="metric-value">-60%</div>
-                    <div class="metric-label">Audio Buffer Latency</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: Bakery Ecommerce -->
-        <div class="project-mini-landing" id="project-bakery">
-          <div class="mini-landing-hero">
-            <div class="mini-landing-title-wrap">
-              <span class="case-index">CASE STUDY 04</span>
-              <h3>Bakery Ecommerce</h3>
-              <p class="case-tagline">High-Performance Editorial E-Commerce Website</p>
-            </div>
-
-            <div class="mini-landing-mockup">
-              <div class="phones-split-frame">
-                <div class="phone-device-frame">
-                  <div class="phone-device-screen bakery-screen-a">
-                    <div class="bakery-brand-mock font-heading">Crusts</div>
-                  </div>
-                </div>
-                <div class="phone-device-frame phone-offset-y">
-                  <div class="phone-device-screen bakery-screen-b">
-                    <div class="bakery-cart-mock">
-                      <span>Cart Total</span>
-                      <h4>$24.00</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Case Study Content Grid -->
-          <div class="case-study-grid">
-            <div class="case-col case-col-narrative">
-              <div class="case-sub-block">
-                <h4>THE CHALLENGE</h4>
-                <p>
-                  Standard template e-commerce stores fail to express luxury brand craftsmanship. The goal was to build
-                  a tailored editorial website that engages buyers and reduces drop-offs.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE RESEARCH</h4>
-                <p>
-                  Observed user buying cycles, identifying that load speed delays and multipage checkout procedures were
-                  the largest drivers of mobile shopping cart abandonment.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE DESIGN</h4>
-                <p>
-                  Designed a minimal, typography-focused editorial layout utilizing clean serif fonts, high-resolution
-                  product photography, and an integrated single-action slide-out cart.
-                </p>
-              </div>
-              <div class="case-sub-block">
-                <h4>THE DEVELOPMENT</h4>
-                <p>
-                  Built using React on the frontend and Node.js on the backend, utilizing Supabase for real-time
-                  database management and integrating Razorpay API for secure checkouts.
-                </p>
-              </div>
-            </div>
-
-            <div class="case-col case-col-output">
-              <div class="case-sub-block">
-                <h4>THE RESULT &amp; BUSINESS IMPACT</h4>
-                <p>
-                  The brand relaunch drove checkout conversions and reduced page load latencies. Edge database
-                  synchronization and optimized queries ensure near-instantaneous page-to-interactive times worldwide.
+                  <strong>Prototype // Concept</strong><br />
+                  Architectural design model and digital workflow prototype for hospitality valet operations.
                 </p>
               </div>
               <div class="case-sub-block">
                 <h4>TECHNOLOGY STACK</h4>
                 <div class="case-tech-tokens">
                   <span>React</span>
+                  <span>TypeScript</span>
                   <span>Node.js</span>
-                  <span>Razorpay</span>
-                  <span>Supabase</span>
+                  <span>WebSockets</span>
+                  <span>CSS Modules</span>
                 </div>
               </div>
               <div class="case-sub-block">
-                <h4>KEY METRICS</h4>
-                <div class="case-metrics-row">
-                  <div class="metric-box">
-                    <div class="metric-value">+48%</div>
-                    <div class="metric-label">Mobile Conversion Rate</div>
-                  </div>
-                  <div class="metric-box">
-                    <div class="metric-value">62ms</div>
-                    <div class="metric-label">Time-to-Interactive</div>
-                  </div>
+                <h4>PROJECT ACCESS</h4>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+                  <a href="https://valet-77y7.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-primary" style="display: inline-flex; gap: 8px; padding: 10px 18px; font-size: 0.8rem;">
+                    <span>View Prototype</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                  <a href="#contact" class="btn-magnetic btn-secondary" style="display: inline-flex; gap: 8px; padding: 10px 18px; font-size: 0.8rem;">
+                    <span>View Case Study</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -811,9 +692,6 @@
         </div>
 
       </div>
-    </section>
-
-    </div>
     </section>
 
     <!-- WHY UCREATES / PHILOSOPHY -->
@@ -956,28 +834,6 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="testimonials-section">
-      <div class="section-container">
-        <div class="testimonial-slider-wrap">
-          <div class="testimonial-panel reveal-text">
-            <blockquote>
-              "UCreates built our enterprise data pipeline and web interface. The final platform performs and looks
-              better than any software we have previously purchased. The quality of Umesh's execution is literally at
-              Apple's level."
-            </blockquote>
-            <div class="testimonial-client-card">
-              <div class="client-portrait-placeholder">✧</div>
-              <div class="client-meta">
-                <span class="client-name">Alexander Vance</span>
-                <span class="client-company">VP of Product, Pulse Systems</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTACT SECTION (Lead Capture Hub) -->
     <section id="contact" class="contact-section">
       <div class="section-container">
@@ -993,13 +849,13 @@
             </p>
 
             <div class="premium-contact-links">
-              <a href="mailto:umeshmedisetty@gmail.com" class="btn-magnetic premium-link-item">
+              <a href="mailto:umesh@ucreates.online" class="btn-magnetic premium-link-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                <span>umeshmedisetty@gmail.com</span>
+                <span>umesh@ucreates.online</span>
               </a>
               <a href="https://wa.me/918121693113?text=Hi%20Umesh,%20I'm%20interested%20in%20building%20a%20project."
                 target="_blank" rel="noopener noreferrer" class="btn-magnetic premium-link-item">
@@ -1008,49 +864,70 @@
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span>Direct Message on WhatsApp</span>
+                <span>WhatsApp (+91 81216 93113)</span>
               </a>
-              <!-- <a href="#" class="btn-magnetic premium-link-item">
+              <a href="tel:+918121693113" class="btn-magnetic premium-link-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
-                  <line x1="16" x2="16" y1="2" y2="6" />
-                  <line x1="8" x2="8" y1="2" y2="6" />
-                  <line x1="3" x2="21" y1="10" y2="10" />
-                  <path d="m9 16 2 2 4-4" />
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span>Book a 15m Video Discovery Call</span>
-              </a> -->
+                <span>Call +91 81216 93113</span>
+              </a>
+            </div>
+
+            <div class="contact-social-row" style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="https://github.com/umesh2702" target="_blank" rel="noopener noreferrer" class="btn-magnetic social-pill-item" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 30px; border: 1px solid var(--border-subtle); background-color: var(--bg-secondary); color: var(--text-primary); font-size: 0.825rem; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/company/ucreates/" target="_blank" rel="noopener noreferrer" class="btn-magnetic social-pill-item" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 30px; border: 1px solid var(--border-subtle); background-color: var(--bg-secondary); color: var(--text-primary); font-size: 0.825rem; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://www.instagram.com/ucreates.tech" target="_blank" rel="noopener noreferrer" class="btn-magnetic social-pill-item" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 30px; border: 1px solid var(--border-subtle); background-color: var(--bg-secondary); color: var(--text-primary); font-size: 0.825rem; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <span>Instagram (@ucreates.tech)</span>
+              </a>
+            </div>
+
+            <div class="contact-location-badge">
+              <span class="location-pulse-dot"></span>
+              <span>Based in Hyderabad, India &bull; Serving Clients Worldwide &bull; GMT+5:30</span>
             </div>
           </div>
 
           <div class="contact-form-panel">
             <form id="lead-form" class="premium-inquiry-form panel-glass">
-              <!-- Web3Forms Config -->
-              <!-- Paste your Web3Forms Access Key here replacing the value below -->
-              <input type="hidden" name="access_key" value="522d60df-6177-480c-a296-ced9d4b3cd4c" />
-              <input type="hidden" name="subject" value="🚀 New Project Inquiry - UCreates Portfolio" />
-              <input type="hidden" name="from_name" value="UCreates Portfolio" />
-
-              <!-- Botcheck honeypot for anti-spam protection -->
-              <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+              <div class="form-underline-group">
+                <input type="text" id="form-name" name="name" placeholder="Full Name *" required />
+              </div>
+              <div class="form-underline-group">
+                <input type="email" id="form-email" name="email" placeholder="Email Address *" required />
+              </div>
 
               <div class="input-row-split">
                 <div class="form-underline-group">
-                  <input type="text" id="form-name" name="name" placeholder="Name" required />
+                  <input type="tel" id="form-phone" name="phone" placeholder="Phone / WhatsApp (Optional)" />
                 </div>
                 <div class="form-underline-group">
-                  <input type="email" id="form-email" name="email" placeholder="Email Address" required />
+                  <select id="form-service" name="service">
+                    <option value="" disabled selected>Select Service Interest</option>
+                    <option value="AI & Automation Systems">AI &amp; Automation Systems</option>
+                    <option value="Web Platforms & SaaS">Web Platforms &amp; SaaS</option>
+                    <option value="Native Mobile Application">Native Mobile App (iOS/Android)</option>
+                    <option value="UI/UX & Design Systems">UI/UX &amp; Design Systems</option>
+                    <option value="Full Digital Product Development">Full Digital Product Development</option>
+                  </select>
                 </div>
               </div>
 
               <div class="form-underline-group">
                 <textarea id="form-message" name="message" rows="4"
-                  placeholder="Briefly describe the software or product vision..." required></textarea>
+                  placeholder="Briefly describe your software vision, scope, or timeline *" required></textarea>
               </div>
 
               <button type="submit" class="btn-magnetic btn-submit btn-primary">
-                <span class="btn-text">Send Inquiry</span>
+                <span class="btn-text">Submit Enquiry</span>
                 <span class="btn-loader" style="display: none;">
                   <svg class="spinner" viewBox="0 0 50 50">
                     <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
@@ -1060,25 +937,21 @@
               <div id="form-status" class="form-status-msg"></div>
             </form>
 
-            <!-- Premium Success State Screen -->
+            <!-- Success State Screen -->
             <div id="lead-success" class="premium-success-state panel-glass" style="display: none; opacity: 0;">
               <div class="success-icon">✓</div>
-              <h3 class="success-title">Inquiry Sent Successfully</h3>
-              <p class="success-subtitle">Thank you for contacting UCreates.</p>
+              <h3 class="success-title">Enquiry Dispatched</h3>
+              <p class="success-subtitle">Thank you for reaching out to UCreates.</p>
               <p class="success-text">
-                We've received your project inquiry and our team will review it shortly.
+                Your enquiry details have been recorded into our Google Sheet pipeline. Umesh Kiran will review your project brief and respond directly.
               </p>
               <p class="success-subtext">
                 You can expect a response within one business day.
               </p>
               <div class="success-actions">
                 <button type="button" class="btn-magnetic btn-secondary success-btn-home">
-                  <span>Back to Home</span>
+                  <span>Send Another Enquiry</span>
                 </button>
-                <a href="https://wa.me/918121693113?text=Hi%20Umesh,%20I'm%20interested%20in%20building%20a%20project."
-                  target="_blank" rel="noopener noreferrer" class="btn-magnetic btn-primary success-btn-wa">
-                  <span>Chat on WhatsApp</span>
-                </a>
               </div>
             </div>
           </div>
@@ -1091,8 +964,15 @@
       <div class="section-container">
         <div class="footer-layout-top">
           <div class="footer-identity-block">
-            <h3>UCreates<span class="dot">✧</span></h3>
+            <div class="footer-logo-wrap">
+              <img src="/logo.png" alt="UCreates Logo" class="footer-logo-img" />
+              <h3 style="margin-bottom: 0;">UCreates<span class="dot">✧</span></h3>
+            </div>
             <p>Designing digital experiences and intelligent software architectures. Built for the AI era.</p>
+            <div class="footer-direct-contact" style="margin-top: 1rem; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem; color: var(--text-secondary);">
+              <a href="mailto:umesh@ucreates.online" style="color: var(--accent-blue); text-decoration: none;">umesh@ucreates.online</a>
+              <a href="tel:+918121693113" style="color: var(--text-secondary); text-decoration: none;">+91 81216 93113</a>
+            </div>
           </div>
           <div class="footer-links-wrap">
             <div class="footer-links-col">
@@ -1101,12 +981,19 @@
               <a href="#services">Capabilities</a>
               <a href="#projects">Works</a>
               <a href="#philosophy">Philosophy</a>
+              <a href="#contact">Contact</a>
             </div>
             <div class="footer-links-col">
-              <h5>Social networks</h5>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+              <h5>Direct Connect</h5>
+              <a href="mailto:umesh@ucreates.online">Email Studio</a>
+              <a href="https://wa.me/918121693113" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a>
+              <a href="tel:+918121693113">Phone Call</a>
+            </div>
+            <div class="footer-links-col">
+              <h5>Social Networks</h5>
+              <a href="https://github.com/umesh2702" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/company/ucreates/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://www.instagram.com/ucreates.tech" target="_blank" rel="noopener noreferrer">Instagram (@ucreates.tech)</a>
             </div>
           </div>
         </div>
